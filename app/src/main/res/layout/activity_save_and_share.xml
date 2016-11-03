@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background"
+    tools:context="com.sofittech.soccerballjerseymaker.SaveAndShare">
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tryAgain"
+        android:background="@drawable/button1"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="65dp"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="320dp"
+        android:src="@drawable/blur"
+        android:id="@+id/shirtimage"
+        android:layout_below="@+id/tryAgain"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imgsave"
+        android:src="@drawable/imgdownload"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="60dp"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/imgshare"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/imgshare"
+        android:layout_alignRight="@+id/tryAgain"
+        android:layout_alignEnd="@+id/tryAgain"/>
+
+</RelativeLayout>

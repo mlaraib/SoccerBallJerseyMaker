@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+
+    <com.sofittech.soccerballjerseymaker.MyLinearLayout
+        android:gravity="center"
+        android:orientation="vertical"
+        android:id="@+id/root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView android:textSize="30sp"
+                  android:textStyle="bold"
+                  android:textColor="#fff"
+                  android:id="@+id/text"
+                  android:gravity="center"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginBottom="30dp"
+                  android:text="text" />
+
+        <RelativeLayout
+            android:id="@+id/layout"
+            android:layout_width="fill_parent"
+            android:layout_height="240dp"
+            android:layout_marginBottom="55dp">
+
+            <ImageView
+                android:id="@+id/ClubShirt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/shirt"
+                 />
+
+            <TextView
+                android:textSize="30sp"
+                android:textColor="#000"
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="Muhammad"
+                android:layout_centerHorizontal="true"
+                />
+
+            <TextView android:textSize="110sp"
+                      android:textColor="#000"
+                      android:id="@+id/number"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:text="28"
+                      android:layout_centerInParent="true" />
+
+        </RelativeLayout>
+    </com.sofittech.soccerballjerseymaker.MyLinearLayout>
+
+
+
+</LinearLayout>
