@@ -65,6 +65,7 @@ public class SaveAndShare extends AppCompatActivity {
             }
             //sendBroadcast(new Intent(Intent.ACTION_MEDIA_MOUNTED,Uri.parse("file://" + Environment.getExternalStorageDirectory())));
 
+            ///This is for the Gallery Refresh///////
             MediaScannerConnection.scanFile(getApplicationContext(), new String[]{Environment.getExternalStorageDirectory().toString()}, null, new MediaScannerConnection.OnScanCompletedListener() {
                 /*
                  *   (non-Javadoc)
@@ -75,6 +76,7 @@ public class SaveAndShare extends AppCompatActivity {
                     Log.i("ExternalStorage", "-> uri=" + uri);
                 }
             });
+            ///This is for the Gallery Refresh///////
 
         }
     }
