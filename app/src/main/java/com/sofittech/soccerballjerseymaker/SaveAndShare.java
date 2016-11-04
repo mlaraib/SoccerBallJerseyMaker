@@ -57,7 +57,7 @@ public class SaveAndShare extends AppCompatActivity {
                 FileOutputStream out = new FileOutputStream(file);
                 bitmap.compress(CompressFormat.PNG, 90, out);
                 out.flush();
-                Toast.makeText(SaveAndShare.this.getApplicationContext(), "picture is saved to your phone", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SaveAndShare.this.getApplicationContext(), "Picture has been saved to your phone", Toast.LENGTH_SHORT).show();
                 download.setEnabled(false);
                 out.close();
 
@@ -109,7 +109,7 @@ public class SaveAndShare extends AppCompatActivity {
                 Intent gmailIntent = new Intent("android.intent.action.SEND");
                 gmailIntent.setType("image/*");
                 gmailIntent.setPackage("com.google.android.gm");
-                gmailIntent.putExtra("android.intent.extra.TEXT", "My #" + SaveAndShare.this.club + " jersey\nMake yours at\nAndroid: tiny.cc/FJA\niOS: tiny.cc/FJI");
+                gmailIntent.putExtra("android.intent.extra.TEXT", "My #" + SaveAndShare.this.club + " jersey\nMake yours at\nAndroid: put package here\niOS: put package here");
                 gmailIntent.putExtra("android.intent.extra.STREAM", shareUri);
                 this.val$dialog.dismiss();
                 try {
@@ -151,7 +151,7 @@ public class SaveAndShare extends AppCompatActivity {
                 Intent instagramIntent = new Intent("android.intent.action.SEND");
                 instagramIntent.setType("image/*");
                 instagramIntent.setPackage("com.instagram.android");
-                instagramIntent.putExtra("android.intent.extra.TEXT", "My #" + SaveAndShare.this.club + " jersey\nMake yours at\nAndroid: tiny.cc/FJA\niOS: tiny.cc/FJI");
+                instagramIntent.putExtra("android.intent.extra.TEXT", "My #" + SaveAndShare.this.club + " jersey\nMake yours at\nAndroid: put package here\niOS: put package here");
                 instagramIntent.putExtra("android.intent.extra.STREAM", shareUri);
                 this.val$dialog.dismiss();
                 try {
@@ -193,7 +193,7 @@ public class SaveAndShare extends AppCompatActivity {
                 Intent viberIntent = new Intent("android.intent.action.SEND");
                 viberIntent.setType("image/*");
                 viberIntent.setPackage("com.viber.voip");
-                viberIntent.putExtra("android.intent.extra.TEXT", "My #" + SaveAndShare.this.club + " jersey\nMake yours at\nAndroid: tiny.cc/FJA\niOS: tiny.cc/FJI");
+                viberIntent.putExtra("android.intent.extra.TEXT", "My #" + SaveAndShare.this.club + " jersey\nMake yours at\nAndroid: put package here\niOS: put package here");
                 viberIntent.putExtra("android.intent.extra.STREAM", shareUri);
                 this.val$dialog.dismiss();
                 try {
@@ -235,7 +235,7 @@ public class SaveAndShare extends AppCompatActivity {
                 Intent whatsappIntent = new Intent("android.intent.action.SEND");
                 whatsappIntent.setType("image/*");
                 whatsappIntent.setPackage("com.whatsapp");
-                whatsappIntent.putExtra("android.intent.extra.TEXT", "My #" + SaveAndShare.this.club + " jersey\nMake yours at\nAndroid: tiny.cc/FJA\niOS: tiny.cc/FJI");
+                whatsappIntent.putExtra("android.intent.extra.TEXT", "My #" + SaveAndShare.this.club + " jersey\nMake yours at\nAndroid: put package here\niOS: put package here");
                 whatsappIntent.putExtra("android.intent.extra.STREAM", shareUri);
                 this.val$dialog.dismiss();
                 try {
@@ -277,7 +277,7 @@ public class SaveAndShare extends AppCompatActivity {
                 Intent whatsappIntent = new Intent("android.intent.action.SEND");
                 whatsappIntent.setType("image/*");
                 whatsappIntent.setPackage("com.facebook.katana");
-                whatsappIntent.putExtra("android.intent.extra.TEXT", "My #" + SaveAndShare.this.club + " jersey\nMake yours at\nAndroid: tiny.cc/FJA\niOS: tiny.cc/FJI");
+                whatsappIntent.putExtra("android.intent.extra.TEXT", "My #" + SaveAndShare.this.club + " jersey\nMake yours at\nAndroid: put package here\niOS: put package here");
                 whatsappIntent.putExtra("android.intent.extra.STREAM", shareUri);
                 this.val$dialog.dismiss();
                 try {
@@ -319,7 +319,7 @@ public class SaveAndShare extends AppCompatActivity {
                 Intent whatsappIntent = new Intent("android.intent.action.SEND");
                 whatsappIntent.setType("image/*");
                 whatsappIntent.setPackage("com.twitter.android");
-                whatsappIntent.putExtra("android.intent.extra.TEXT", "My #" + SaveAndShare.this.club + " jersey\nMake yours at\nAndroid: tiny.cc/FJA\niOS: tiny.cc/FJI");
+                whatsappIntent.putExtra("android.intent.extra.TEXT", "My #" + SaveAndShare.this.club + " jersey\nMake yours at\nAndroid: put package here\niOS: put package here");
                 whatsappIntent.putExtra("android.intent.extra.STREAM", shareUri);
                 this.val$dialog.dismiss();
                 try {
