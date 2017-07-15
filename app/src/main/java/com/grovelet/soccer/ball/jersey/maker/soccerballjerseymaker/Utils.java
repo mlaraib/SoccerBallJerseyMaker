@@ -1,10 +1,13 @@
-package com.sofittech.soccerballjerseymaker;
+package com.grovelet.soccer.ball.jersey.maker.soccerballjerseymaker;
 
 import android.graphics.Color;
 import android.support.v4.media.TransportMediator;
 import android.support.v4.view.InputDeviceCompat;
 import android.support.v4.view.MotionEventCompat;
 import android.support.v7.widget.helper.ItemTouchHelper.Callback;
+
+import com.grovelet.soccer.ball.jersey.maker.soccerballjerseymaker.R;
+
 import java.util.HashMap;
 
 public class Utils {

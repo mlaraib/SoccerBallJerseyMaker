@@ -1,59 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context="com.sofittech.soccerballjerseymaker.MainActivity">
+    tools:context="com.grovelet.soccer.ball.jersey.maker.soccerballjerseymaker.MainActivity">
 
 
+    <RelativeLayout
+        android:id="@+id/adViewCon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_above="@id/adViewCon">
     <EditText
+        android:id="@+id/username"
         android:layout_width="250dp"
         android:layout_height="50dp"
+        android:background="@drawable/roundedbutton"
+        android:gravity="center"
         android:hint="Enter Your Name"
-        android:textColorHint="#fff"
-        android:textColor="#fff"
-        android:textSize="25dp"
-        android:singleLine="true"
-        android:nextFocusDown="@+id/shirtnumber"
         android:imeOptions="actionNext"
         android:maxLength="8"
-        android:background="@drawable/roundedbutton"
-        android:id="@+id/username"
-        android:gravity="center"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="189dp"
-        />
+        android:nextFocusDown="@+id/shirtnumber"
+        android:singleLine="true"
+        android:textColor="#fff"
+        android:textColorHint="#fff"
+        android:textSize="25dp" />
 
     <EditText
+        android:id="@+id/shirtnumber"
         android:layout_width="250dp"
         android:layout_height="50dp"
-        android:hint="Enter Shirt Numb"
-        android:textColorHint="#fff"
-        android:textColor="#fff"
-        android:maxLength="2"
-        android:background="@drawable/roundedbutton"
-        android:id="@+id/shirtnumber"
-        android:inputType="number"
-        android:textSize="25dp"
-        android:gravity="center"
-        android:layout_marginTop="35dp"
         android:layout_below="@+id/username"
-        android:layout_alignLeft="@+id/username"
-        android:layout_alignStart="@+id/username"/>
+        android:layout_marginTop="35dp"
+        android:background="@drawable/roundedbutton"
+        android:gravity="center"
+        android:hint="Enter Shirt Numb"
+        android:inputType="number"
+        android:maxLength="2"
+        android:textColor="#fff"
+        android:textColorHint="#fff"
+        android:textSize="25dp" />
 
     <Button
+        android:id="@+id/btnNext"
+        android:gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btnNext"
-        android:background="@drawable/button"
-        android:layout_marginTop="47dp"
         android:layout_below="@+id/shirtnumber"
-        android:layout_centerHorizontal="true"/>
-
-
+        android:layout_marginTop="40dp"
+        android:background="@drawable/button"
+        />
+    </LinearLayout>
 
 
 </RelativeLayout>

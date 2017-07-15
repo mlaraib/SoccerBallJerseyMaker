@@ -1,4 +1,4 @@
-package com.sofittech.soccerballjerseymaker;
+package com.grovelet.soccer.ball.jersey.maker.soccerballjerseymaker;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,7 +13,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -25,6 +24,8 @@ import android.widget.TextView;
 //import com.google.android.gms.ads.AdRequest.Builder;
 //import com.google.android.gms.ads.AdView;
 //import com.google.android.gms.ads.MobileAds;
+import com.grovelet.soccer.ball.jersey.maker.soccerballjerseymaker.R;
+
 import uk.co.chrisjenx.calligraphy.BuildConfig;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
@@ -106,8 +107,8 @@ public class DashbordActivity extends AppCompatActivity implements OnNavigationI
         public void onClick(View view) {
             DashbordActivity.countryNumber = DashbordActivity.PAGES;
             this.val$countryName.setText("Costa Rica");
-           // this.val$Costa_rica.setBackgroundColor(DashbordActivity.this.getResources().getColor(R.color.pressedColor));
-         //   DashbordActivity.this.lastPressed.setBackgroundColor(DashbordActivity.this.getResources().getColor(R.color.normalColor));
+            // this.val$Costa_rica.setBackgroundColor(DashbordActivity.this.getResources().getColor(R.color.pressedColor));
+            //   DashbordActivity.this.lastPressed.setBackgroundColor(DashbordActivity.this.getResources().getColor(R.color.normalColor));
             DashbordActivity.this.lastPressed = this.val$Costa_rica;
             this.val$drawer.closeDrawer(Gravity.LEFT);
             DashbordActivity.this.adapter.notifyDataSetChanged();
@@ -129,8 +130,8 @@ public class DashbordActivity extends AppCompatActivity implements OnNavigationI
         public void onClick(View view) {
             DashbordActivity.countryNumber = 11;
             this.val$countryName.setText("Czech Republic");
-     //       this.val$Czech_Republic.setBackgroundColor(DashbordActivity.this.getResources().getColor(R.color.pressedColor));
-       //     DashbordActivity.this.lastPressed.setBackgroundColor(DashbordActivity.this.getResources().getColor(R.color.normalColor));
+            //       this.val$Czech_Republic.setBackgroundColor(DashbordActivity.this.getResources().getColor(R.color.pressedColor));
+            //     DashbordActivity.this.lastPressed.setBackgroundColor(DashbordActivity.this.getResources().getColor(R.color.normalColor));
             DashbordActivity.this.lastPressed = this.val$Czech_Republic;
             this.val$drawer.closeDrawer(Gravity.LEFT);
             DashbordActivity.this.adapter.notifyDataSetChanged();
@@ -152,8 +153,8 @@ public class DashbordActivity extends AppCompatActivity implements OnNavigationI
         public void onClick(View view) {
             DashbordActivity.countryNumber = 12;
             this.val$countryName.setText("Denmark");
- //           this.val$Denmark.setBackgroundColor(DashbordActivity.this.getResources().getColor(R.color.pressedColor));
-   //         DashbordActivity.this.lastPressed.setBackgroundColor(DashbordActivity.this.getResources().getColor(R.color.normalColor));
+            //           this.val$Denmark.setBackgroundColor(DashbordActivity.this.getResources().getColor(R.color.pressedColor));
+            //         DashbordActivity.this.lastPressed.setBackgroundColor(DashbordActivity.this.getResources().getColor(R.color.normalColor));
             DashbordActivity.this.lastPressed = this.val$Denmark;
             this.val$drawer.closeDrawer(Gravity.LEFT);
             DashbordActivity.this.adapter.notifyDataSetChanged();
@@ -176,7 +177,7 @@ public class DashbordActivity extends AppCompatActivity implements OnNavigationI
             DashbordActivity.countryNumber = 13;
             this.val$countryName.setText("Ecuador");
 //            this.val$Ecuador.setBackgroundColor(DashbordActivity.this.getResources().getColor(R.color.pressedColor));
- //           DashbordActivity.this.lastPressed.setBackgroundColor(DashbordActivity.this.getResources().getColor(R.color.normalColor));
+            //           DashbordActivity.this.lastPressed.setBackgroundColor(DashbordActivity.this.getResources().getColor(R.color.normalColor));
             DashbordActivity.this.lastPressed = this.val$Ecuador;
             this.val$drawer.closeDrawer(Gravity.LEFT);
             DashbordActivity.this.adapter.notifyDataSetChanged();
@@ -199,7 +200,7 @@ public class DashbordActivity extends AppCompatActivity implements OnNavigationI
             DashbordActivity.countryNumber = 14;
             this.val$countryName.setText("Egypt");
 //            this.val$Egypt.setBackgroundColor(DashbordActivity.this.getResources().getColor(R.color.pressedColor));
- //           DashbordActivity.this.lastPressed.setBackgroundColor(DashbordActivity.this.getResources().getColor(R.color.normalColor));
+            //           DashbordActivity.this.lastPressed.setBackgroundColor(DashbordActivity.this.getResources().getColor(R.color.normalColor));
             DashbordActivity.this.lastPressed = this.val$Egypt;
             this.val$drawer.closeDrawer(Gravity.LEFT);
             DashbordActivity.this.adapter.notifyDataSetChanged();
@@ -288,6 +289,7 @@ public class DashbordActivity extends AppCompatActivity implements OnNavigationI
             Intent intent = new Intent(DashbordActivity.this, SaveAndShare.class);
             intent.putExtra("club", clubName);
             DashbordActivity.this.startActivity(intent);
+            MainActivity.ads.showInterstitial(false);
         }
     }
 

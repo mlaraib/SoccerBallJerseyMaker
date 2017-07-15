@@ -1,4 +1,4 @@
-package com.sofittech.soccerballjerseymaker;
+package com.grovelet.soccer.ball.jersey.maker.soccerballjerseymaker;
 
 /**
  * Created by iamla on 10/27/2016.

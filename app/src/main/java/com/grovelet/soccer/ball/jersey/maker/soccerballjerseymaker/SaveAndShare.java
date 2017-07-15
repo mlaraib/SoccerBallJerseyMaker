@@ -1,4 +1,4 @@
-package com.sofittech.soccerballjerseymaker;
+package com.grovelet.soccer.ball.jersey.maker.soccerballjerseymaker;
 
 import android.app.Dialog;
 import android.content.ActivityNotFoundException;
@@ -16,9 +16,15 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
+
+import com.grovelet.soccer.ball.jersey.maker.soccerballjerseymaker.DashbordActivity;
+import com.grovelet.soccer.ball.jersey.maker.soccerballjerseymaker.R;
+
 import java.io.File;
 import java.io.FileOutputStream;
+import java.net.URI;
 import java.util.Random;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
@@ -30,7 +36,7 @@ public class SaveAndShare extends AppCompatActivity {
     ImageView share;
     ImageView shirt;
     Button tryAgain;
-
+    Uri uri;
     /* renamed from: com.virtualproz.android.footballJerseyMaker.SaveAndShare.1 */
     class C04751 implements OnClickListener {
         C04751() {
@@ -39,6 +45,8 @@ public class SaveAndShare extends AppCompatActivity {
         public void onClick(View view) {
             SaveAndShare.this.startActivity(new Intent(SaveAndShare.this, DashbordActivity.class));
             SaveAndShare.this.finish();
+            MainActivity.ads.showInterstitial(false);
+
         }
     }
 
@@ -48,10 +56,12 @@ public class SaveAndShare extends AppCompatActivity {
         }
 
         public void onClick(View view) {
+            MainActivity.ads.showInterstitial(false);
             Bitmap bitmap = SaveAndShare.this.shirt.getDrawingCache();
-            File newDir = new File(Environment.getExternalStorageDirectory().toString() + "/Soccer Ball Jersey Maker");
+            File newDir = new File(Environment.getExternalStorageDirectory().toString() + getResources().getString(R.string.app_name));
             newDir.mkdirs();
             File file = new File(newDir, new Random().nextInt(10000) + ".png");
+            uri = Uri.fromFile(file);
             System.err.print("Path of saved image." + file.getAbsolutePath());
             try {
                 FileOutputStream out = new FileOutputStream(file);
@@ -63,7 +73,9 @@ public class SaveAndShare extends AppCompatActivity {
 
             } catch (Exception e) {
             }
-            //sendBroadcast(new Intent(Intent.ACTION_MEDIA_MOUNTED,Uri.parse("file://" + Environment.getExternalStorageDirectory())));
+            Intent scanFileIntent = new Intent(
+                    Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, uri);
+            sendBroadcast(scanFileIntent);
 
             ///This is for the Gallery Refresh///////
             MediaScannerConnection.scanFile(getApplicationContext(), new String[]{Environment.getExternalStorageDirectory().toString()}, null, new MediaScannerConnection.OnScanCompletedListener() {
@@ -125,7 +137,6 @@ public class SaveAndShare extends AppCompatActivity {
                 }
             }
         }
-
         /* renamed from: com.virtualproz.android.footballJerseyMaker.SaveAndShare.3.2 */
         class C04782 implements OnClickListener {
             final /* synthetic */ Dialog val$dialog;
@@ -209,7 +220,6 @@ public class SaveAndShare extends AppCompatActivity {
                 }
             }
         }
-
         /* renamed from: com.virtualproz.android.footballJerseyMaker.SaveAndShare.3.4 */
         class C04804 implements OnClickListener {
             final /* synthetic */ Dialog val$dialog;
@@ -293,7 +303,6 @@ public class SaveAndShare extends AppCompatActivity {
                 }
             }
         }
-
         /* renamed from: com.virtualproz.android.footballJerseyMaker.SaveAndShare.3.6 */
         class C04826 implements OnClickListener {
             final /* synthetic */ Dialog val$dialog;
@@ -353,7 +362,7 @@ public class SaveAndShare extends AppCompatActivity {
         }
 
         public void onClick(View view) {
-            Dialog dialog = new Dialog(SaveAndShare.this.context);
+            /*Dialog dialog = new Dialog(SaveAndShare.this.context);
             dialog.setContentView(R.layout.coustom_dialog);
             dialog.setTitle("Share with");
             Button dialogButton = (Button) dialog.findViewById(R.id.dialogButtonCancle);
@@ -369,7 +378,18 @@ public class SaveAndShare extends AppCompatActivity {
             facebook.setOnClickListener(new C04815(dialog));
             twitter.setOnClickListener(new C04826(dialog));
             dialogButton.setOnClickListener(new C04837(dialog));
-            dialog.show();
+            dialog.show();*/
+
+
+            String appURL = "https://play.google.com/store/apps/details?id=";
+            Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+            sharingIntent.setType("image/*");
+            sharingIntent.putExtra("android.intent.extra.TEXT", getResources().getString(R.string.app_name) + ":  " + appURL + getPackageName());
+            Log.e("App URL", appURL + getPackageName());
+            sharingIntent.putExtra(Intent.EXTRA_STREAM, uri);
+            startActivity(Intent.createChooser(sharingIntent, "Share Wallpaper using"));
+            MainActivity.ads.showInterstitial(false);
+
         }
     }
 
@@ -397,6 +417,7 @@ public class SaveAndShare extends AppCompatActivity {
         this.download = (ImageView) findViewById(R.id.imgsave);
         this.download.setOnClickListener(new C04762());
         this.share.setOnClickListener(new C04843());
+        RelativeLayout adView = (RelativeLayout)findViewById(R.id.adViewCon);
+        MainActivity.ads.loadBanner(adView);
     }
 }
-

@@ -1,4 +1,4 @@
-package com.sofittech.soccerballjerseymaker;
+package com.grovelet.soccer.ball.jersey.maker.soccerballjerseymaker;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -10,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.nineoldandroids.view.ViewHelper;
+import com.grovelet.soccer.ball.jersey.maker.soccerballjerseymaker.R;
+
 import java.util.Locale;
 
 public class MyFragment extends Fragment {

@@ -1,4 +1,4 @@
-package com.sofittech.soccerballjerseymaker;
+package com.grovelet.soccer.ball.jersey.maker.soccerballjerseymaker;
 
 /**
  * Created by iamla on 10/27/2016.
@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.nineoldandroids.view.ViewHelper;
+import com.grovelet.soccer.ball.jersey.maker.soccerballjerseymaker.R;
 
 
 public class MyPagerAdapter extends FragmentPagerAdapter implements OnPageChangeListener {

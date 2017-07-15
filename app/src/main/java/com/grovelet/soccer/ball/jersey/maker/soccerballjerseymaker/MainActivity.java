@@ -1,26 +1,56 @@
-package com.sofittech.soccerballjerseymaker;
+package com.grovelet.soccer.ball.jersey.maker.soccerballjerseymaker;
 
 import android.content.Intent;
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.Selection;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
+
+import com.google.android.gms.analytics.GoogleAnalytics;
+import com.google.android.gms.analytics.Tracker;
+import com.grovelet.soccer.ball.jersey.maker.soccerballjerseymaker.BuildConfig;
+import com.grovelet.soccer.ball.jersey.maker.soccerballjerseymaker.R;
 
 public class MainActivity extends AppCompatActivity {
 
     EditText name;
     Button next;
     EditText number;
+
+    public static Ads ads;
+    public static GoogleAnalytics analytics;
+    public static Tracker tracker;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ads = new Ads(this, true, true, true);
+
+        if (android.os.Build.VERSION.SDK_INT >= 21) {
+            Window statusBar = getWindow();
+            statusBar.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            statusBar.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            statusBar.setStatusBarColor(getResources().getColor(R.color.colorPrimaryDark));
+            statusBar.setNavigationBarColor(getResources().getColor(R.color.colorPrimaryDark));
+        }
         setContentView(R.layout.activity_main);
+        RelativeLayout adView = (RelativeLayout)findViewById(R.id.adViewCon);
+
+        ads.loadInterstitial();
+        ads.loadBanner(adView);
+
+        analytics = GoogleAnalytics.getInstance(this);
+        analytics.setLocalDispatchPeriod(10);
+        tracker = analytics.newTracker(getResources().getString(R.string.analytics_id));
+        tracker.enableAutoActivityTracking(true);
+
 
         name= (EditText) findViewById(R.id.username);
         number= (EditText) findViewById(R.id.shirtnumber);
@@ -97,10 +127,17 @@ public class MainActivity extends AppCompatActivity {
                     myintent.putExtra("name", MainActivity.this.name.getText().toString());
                     myintent.putExtra("number", MainActivity.this.number.getText().toString());
                     MainActivity.this.startActivity(myintent);
+                    ads.showInterstitial(false);
                 }
             }
         });
 
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        ads.showInterstitial(true);
     }
 }
