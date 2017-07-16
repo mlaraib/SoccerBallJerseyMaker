@@ -58,7 +58,8 @@ public class SaveAndShare extends AppCompatActivity {
         public void onClick(View view) {
             MainActivity.ads.showInterstitial(false);
             Bitmap bitmap = SaveAndShare.this.shirt.getDrawingCache();
-            File newDir = new File(Environment.getExternalStorageDirectory().toString() + getResources().getString(R.string.app_name));
+
+            File newDir = new File(Environment.getExternalStorageDirectory().toString() + "/" + getResources().getString(R.string.app_name));
             newDir.mkdirs();
             File file = new File(newDir, new Random().nextInt(10000) + ".png");
             uri = Uri.fromFile(file);
@@ -67,7 +68,7 @@ public class SaveAndShare extends AppCompatActivity {
                 FileOutputStream out = new FileOutputStream(file);
                 bitmap.compress(CompressFormat.PNG, 90, out);
                 out.flush();
-                Toast.makeText(SaveAndShare.this.getApplicationContext(), "Picture has been saved to your phone", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SaveAndShare.this, "Saved", Toast.LENGTH_SHORT).show();
                 download.setEnabled(false);
                 out.close();
 
